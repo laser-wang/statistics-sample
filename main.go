@@ -57,7 +57,7 @@ func statisticsSub(line string, result *common.StatisticsResult) {
 	userId := lineSplit[0]
 	value := lineSplit[1]
 
-	if common.ChkRepeat(userId, "user_cnt", common.RedisConn) == false {
+	if common.ChkRepeat("user_cnt", userId, common.RedisConn) == false {
 		result.UserCnt = result.UserCnt + 1
 	}
 	result.UserSum = result.UserSum + utils.Atoi(value)
